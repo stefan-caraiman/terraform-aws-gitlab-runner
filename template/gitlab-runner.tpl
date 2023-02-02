@@ -17,6 +17,7 @@ ${runners_config}
 EOF
 
 cat > /etc/gitlab-runner/runners_userdata.sh <<- EOF
+mkdir -p /etc/docker
 ${runners_userdata}
 EOF
 
