@@ -49,6 +49,7 @@ listen_address = "${prometheus_listen_address}"
     MachineDriver = "amazonec2"
     MachineName = "${docker_machine_name}"
     MachineOptions = [
+      "engine-install-url='https://releases.rancher.com/install-docker/20.10.21.sh'",
       "amazonec2-instance-type=${runners_instance_type}",
       "amazonec2-region=${aws_region}",
       "amazonec2-zone=${runners_aws_zone}",
