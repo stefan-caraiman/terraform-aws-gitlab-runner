@@ -17,7 +17,11 @@ ${runners_config}
 EOF
 
 cat > /etc/gitlab-runner/runners_userdata.sh <<- EOF
-mkdir -p /etc/docker
+#!/bin/bash
+
+mkdir -p /etc/docker/
+date
+
 ${runners_userdata}
 EOF
 
