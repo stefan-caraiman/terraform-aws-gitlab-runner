@@ -3,6 +3,8 @@ if ! [ -x "$(command -v jq)" ]; then
   yum install jq -y
 fi
 
+mkdir -p /etc/docker
+
 # Provide the parent instance id in the spawned runner tags
 PARENT_INSTANCE_ID=$(curl -s -H "X-aws-ec2-metadata-token: $token" http://169.254.169.254/latest/dynamic/instance-identity/document | jq -r .instanceId)
 PARENT_TAG="gitlab-runner-parent-id,$${PARENT_INSTANCE_ID}"
