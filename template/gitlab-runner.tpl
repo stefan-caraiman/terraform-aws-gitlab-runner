@@ -64,8 +64,8 @@ sed -i.bak s,__SENTRY_DSN_REPLACED_BY_USER_DATA__,`echo $ssm_sentry_dsn`,g /etc/
 
 ${pre_install}
 
-if [[ `echo ${runners_executor}` == "docker" ]]
-then
+#if [[ `echo ${runners_executor}` == "docker" ]]
+#then
   echo 'installing docker'
   if grep -q ':2$' /etc/system-release-cpe  ; then
     # AWS Linux 2 provides docker via extras only and uses systemd (https://aws.amazon.com/amazon-linux-2/release-notes/)
@@ -78,7 +78,7 @@ then
     usermod -a -G docker ec2-user
     service docker start
   fi
-fi
+#fi
 
 if [[ `echo ${runners_install_amazon_ecr_credential_helper}` == "true" ]]
 then
